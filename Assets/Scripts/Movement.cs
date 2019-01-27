@@ -20,27 +20,13 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //checks whether arrow or WASD buttons are used.
-        if (Input.GetKey(KeyCode.A | KeyCode.W | KeyCode.S | KeyCode.D))
-        {
-            WASDMovement();
-        }
-        ArrowMovement();
+        Move();   
     }
 
 
-    //gets input from Arrow buttons and moves sphere
-    private void ArrowMovement()
-    {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+    //gets input from WASD buttons and moves sphere
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-        rb.AddForce(movement * speed);
-    }
-
-    private void WASDMovement()
+    private void Move()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
